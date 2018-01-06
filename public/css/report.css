@@ -1,0 +1,82 @@
+body{
+	font-family : sans-serif;
+}
+table{
+	border-collapse: collapse;
+}
+@media print {
+	body {
+		-webkit-print-color-adjust: exact;
+	}
+	.anam-table th{
+		background-color: #eeeeee !important;
+		text-align: center;
+	}
+	.table td .bg-black{
+		background-color: black !important;
+	}
+	.abu-abu {
+		background-color: #eeeeee !important;
+		-webkit-print-color-adjust: exact !important;
+	}
+}
+.anam-table th{
+	background-color: #eeeeee !important;
+	text-align: center;
+}
+.abu-abu {
+	background-color: #eeeeee !important;
+	-webkit-print-color-adjust: exact !important;
+}
+.anam-table{
+	width: 100%;
+}
+.anam-table td, th{
+	padding: 10px;
+}
+.anam-table-bordered{
+
+}
+.anam-table-bordered td, th{
+	border: 1px solid #cccccc;
+}
+html{
+	font-family: sans-serif;
+}
+table{
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+}
+.table{
+	border: 1px solid #cccccc;
+	width: 100%;
+}
+.table td, .table th{
+	border: 1px solid #bbbbbb;
+}
+.table th {
+	text-align: center;
+}
+td, th{
+	padding: 8px;
+}
+.table-striped tr:nth-child(even){
+	background-color: #f2f2f2
+}
+.text-center{
+	text-align: center;
+}
+.modul{
+	position: fixed;
+	left: 50%;
+	top: 2px;
+}
+.company-logo{
+	position: absolute;
+	left: 30px;
+	top: 25px;
+}
+h1, h2, h3, h4, h5, h6{
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}

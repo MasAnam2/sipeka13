@@ -1,0 +1,18 @@
+{
+  "/mix.js": "/mix.js",
+  "/spk/dist/css/spk-libraries.css": "/spk/dist/css/spk-libraries.css",
+  "/spk/dist/css/spk-libraries.min.css": "/spk/dist/css/spk-libraries.min.css",
+  "/spk/dist/js/app.js": "/spk/dist/js/app.js",
+  "/spk/dist/js/spk-libraries.js": "/spk/dist/js/spk-libraries.js",
+  "/spk/dist/js/spk-libraries.min.js": "/spk/dist/js/spk-libraries.min.js",
+  "/spk/dist/js/app.min.js": "/spk/dist/js/app.min.js",
+  "resources/assets/sass/login.min.css": "resources/assets/sass/login.min.css",
+  "/spk/dist/css/login.min.css": "/spk/dist/css/login.min.css",
+  "/spk/dist/css/login.css": "/spk/dist/css/login.css",
+  "/spk/dist/js/login.js": "/spk/dist/js/login.js",
+  "/spk/dist/js/login.min.js": "/spk/dist/js/login.min.js",
+  "/spk/dist/js/login-libraries.js": "/spk/dist/js/login-libraries.js",
+  "/spk/dist/js/login-libraries.min.js": "/spk/dist/js/login-libraries.min.js",
+  "/spk/dist/js/login-fix.js": "/spk/dist/js/login-fix.js",
+  "/spk/dist/js/login-fix.min.js": "/spk/dist/js/login-fix.min.js"
+}

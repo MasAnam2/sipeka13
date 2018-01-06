@@ -1,0 +1,34 @@
+@media print {
+	@page{
+		margin: 2px !important;
+	}
+	.container-fluid{
+		padding: 2px !important;
+	}
+	td .bg-black{
+		-webkit-print-color-adjust: exact !important;
+		background-color: black !important;
+	}
+	.table tr td {
+		border-color: black !important;
+	}
+}
+@page{
+	margin: 2px !important;
+}
+.container-fluid{
+	padding: 0 !important;
+}
+.table{
+	border-color: black !important;
+}
+.bg-black{
+	background-color: black !important;
+}
+.table th{
+	background-color: #eeeeee !important;
+	/*border-color: black !important;*/
+}
+.table tr td {
+	border-color: black !important;
+}

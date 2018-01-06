@@ -1,0 +1,12 @@
+.tbl{
+  overflow-y: hidden;
+}
+.pointer{
+  cursor: pointer;
+}
+.msg{
+  position: fixed; top: 20px; right: 10px; z-index: 1051; max-width: 400px; display: none;
+}
+.callout{
+  display: none;
+}
