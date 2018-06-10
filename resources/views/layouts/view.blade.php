@@ -40,7 +40,7 @@
 		</div>
 	</div>
 	<script src="{{ asset('spk/dist/js/spk-libraries.min.js') }}"></script>
-	<script src="{{ asset('spk/dist/js/app.min.js') }}"></script>
-	{{-- <script src="{{ asset('spk/dist/js/app.js') }}"></script> --}}
+	{{-- <script src="{{ asset('spk/dist/js/app.min.js') }}"></script> --}}
+	<script src="{{ asset('spk/dist/js/app.js') }}"></script>
 </body>
 </html>

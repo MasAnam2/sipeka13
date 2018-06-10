@@ -1,7 +1,17 @@
+window.refreshCsrfToken = () => {
+	axios.get(base_url('/get-csrf-token')).then(res=>{
+		$('[name="csrf-token"]').attr('content', res.data);
+	}).catch(err=>{
+		handleError(err)
+	})
+}
+
+setInterval(refreshCsrfToken, 10*60*1000)
+
+
 // CONTENT VIEW
 
 window.BAR_LOADER = `<section class="content"><div class="row"><div class="col-md-12"><div class="box"><div class="box-body"><div class="progress active"><div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"><span class="sr-only">40% Complete (success)</span></div></div></div></div></div></div></section>`
-
 
 window.showFailedAlert = (errorTxt, el='.failed-alert') => {
 	let eee;
@@ -22,6 +32,13 @@ window.showSuccessAlert = (successTxt, el='.success-alert') => {
 	sss = setTimeout(function(){
 		$(el).fadeOut();
 	}, 5000);
+}
+
+window.toDocs = (uri, title) => {
+	if(uri || title)
+		moveModul('/docs'+uri, title, 'documentation')
+	else
+		moveModul('/docs', 'Documentation', 'documentation')
 }
 
 window.moveModul = (uri, title, modul) => {
@@ -423,7 +440,7 @@ window.companyEdit = (e) => {
 		$('#company-modal-edit').find('.modal-body').html(res.data)
 		$('#company-modal-edit').modal()
 	}).catch(err=>{
-		alert('failed to load')
+		handleError(err)
 	})
 }
 
@@ -436,12 +453,12 @@ window.refreshCompanyProfile = () => {
 	axios.get(base_url('/company-profile/view')).then(res=>{
 		$('#company-profile-view').html(res.data)
 	}).catch(err=>{
-		$('#company-profile-view').html("ERROR")
+		handleError(err)
 	})
 	axios.get(base_url('/company-profile/data')).then(res=>{
 		$('.company-title').html(res.data.name)
 	}).catch(err=>{
-		$('.company-title').html("ERROR")
+		handleError(err)
 	})
 }
 
@@ -501,6 +518,8 @@ window.refreshAvatar = () => {
 		$('.user-header').find('img').attr('src', res.data)
 		$('.widget-user-image').find('img').attr('src', res.data)
 		$('.user-image').attr('src', res.data)
+	}).catch(err=>{
+		handleError(err)
 	})
 }
 

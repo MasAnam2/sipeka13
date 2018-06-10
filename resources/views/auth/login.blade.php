@@ -26,8 +26,8 @@
     <div class="alert"></div>
   </p>
 </div>
-{{-- <script src="{{ asset('spk/dist/js/login-libraries.min.js') }}"></script>
-<script src="{{ asset('spk/dist/js/login.js') }}"></script> --}}
-<script src="{{ asset('spk/dist/js/login-fix.min.js') }}"></script>
+<script src="{{ asset('spk/dist/js/login-libraries.min.js') }}"></script>
+<script src="{{ asset('spk/dist/js/login.js') }}"></script>
+{{-- <script src="{{ asset('spk/dist/js/login-fix.min.js') }}"></script> --}}
 </body>
 </html>

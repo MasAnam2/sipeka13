@@ -123,10 +123,10 @@ function waktuindo($date)
 	return indo_date($date).' '.substr($date, 10);
 }
 
-function now()
-{
-	return date('Y-m-d H:i:s');
-}
+// function now()
+// {
+// 	return date('Y-m-d H:i:s');
+// }
 
 function international_format_date_time($datetime)
 {

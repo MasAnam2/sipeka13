@@ -1,7 +1,7 @@
 <template>
 	<ul class="sidebar-menu">
 		<li class="header">MAIN NAVIGATION</li>
-		<li v-for="menu in menus" :class="[activeModul.includes(menu.modul) ? 'active' : '']">
+		<li v-for="menu in menus" :class="[activeModul.indexOf(menu.link) == 0 ? 'active' : '']">
 			<a href="#" v-on:click.prevent="moveModul(menu.link, menu.text, menu.modul)">
 				<i :class="menu.icon"></i><span> {{ menu.text }}</span>
 			</a>
@@ -30,7 +30,7 @@ export default {
 	methods : {
 		moveModul(uri, title, modul){
 			if(!this.processingModul){
-				this.activeModul     = modul
+				this.activeModul     = uri
 				this.processingModul = true
 				moveModul(uri, title, modul)
 				this.processingModul = false

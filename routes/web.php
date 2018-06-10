@@ -5,6 +5,11 @@
 	// ]);
 // });
 Auth::routes();
+
+Route::get('/get-csrf-token', function(){
+	return csrf_token();
+});
+
 Route::group(['middleware' => 'auth'], function() {
 
 	#MENU
@@ -223,5 +228,31 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::get('/data', 'CompanyController@data');
 		Route::get('/edit', 'CompanyController@edit');
 		Route::put('/update', 'CompanyController@update')->name('company_profile.update');
+	});
+
+
+	# DOCUMENTATION
+	Route::group(['prefix' => 'docs'], function(){
+		Route::get('/', 'DocController@index');
+		Route::group(['prefix' => 'departments', 'namespace' => 'Docs'], function(){
+			Route::get('/create', 'DepartmentController@create');
+			Route::get('/edit', 'DepartmentController@edit');
+			Route::get('/delete', 'DepartmentController@delete');
+			Route::get('/delete-selected', 'DepartmentController@deleteSelected');
+		});
+		Route::group(['prefix' => 'positions', 'namespace' => 'Docs'], function(){
+			Route::get('/create', 'PositionController@create');
+			Route::get('/edit', 'PositionController@edit');
+			Route::get('/delete', 'PositionController@delete');
+			Route::get('/delete-selected', 'PositionController@deleteSelected');
+		});
+		Route::group(['prefix' => 'employees', 'namespace' => 'Docs'], function(){
+			Route::get('/create', 'EmployeeController@create');
+			Route::get('/detail', 'EmployeeController@detail');
+			Route::get('/edit', 'EmployeeController@edit');
+			Route::get('/delete', 'EmployeeController@delete');
+			Route::get('/delete-selected', 'EmployeeController@deleteSelected');
+			Route::get('/other', 'EmployeeController@other');
+		});
 	});
 });

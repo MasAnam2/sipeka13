@@ -1931,7 +1931,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			return moveModul;
 		}(function (uri, title, modul) {
 			if (!this.processingModul) {
-				this.activeModul = modul;
+				this.activeModul = uri;
 				this.processingModul = true;
 				moveModul(uri, title, modul);
 				this.processingModul = false;
@@ -1953,6 +1953,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ }),
 /* 31 */
 /***/ (function(module, exports) {
+
+window.refreshCsrfToken = function () {
+	axios.get(base_url('/get-csrf-token')).then(function (res) {
+		$('[name="csrf-token"]').attr('content', res.data);
+	}).catch(function (err) {
+		handleError(err);
+	});
+};
+
+setInterval(refreshCsrfToken, 10 * 60 * 1000);
 
 // CONTENT VIEW
 
@@ -1980,6 +1990,10 @@ window.showSuccessAlert = function (successTxt) {
 	sss = setTimeout(function () {
 		$(el).fadeOut();
 	}, 5000);
+};
+
+window.toDocs = function (uri, title) {
+	if (uri || title) moveModul('/docs' + uri, title, 'documentation');else moveModul('/docs', 'Documentation', 'documentation');
 };
 
 window.moveModul = function (uri, title, modul) {
@@ -2380,7 +2394,7 @@ window.companyEdit = function (e) {
 		$('#company-modal-edit').find('.modal-body').html(res.data);
 		$('#company-modal-edit').modal();
 	}).catch(function (err) {
-		alert('failed to load');
+		handleError(err);
 	});
 };
 
@@ -2393,12 +2407,12 @@ window.refreshCompanyProfile = function () {
 	axios.get(base_url('/company-profile/view')).then(function (res) {
 		$('#company-profile-view').html(res.data);
 	}).catch(function (err) {
-		$('#company-profile-view').html("ERROR");
+		handleError(err);
 	});
 	axios.get(base_url('/company-profile/data')).then(function (res) {
 		$('.company-title').html(res.data.name);
 	}).catch(function (err) {
-		$('.company-title').html("ERROR");
+		handleError(err);
 	});
 };
 
@@ -2456,6 +2470,8 @@ window.refreshAvatar = function () {
 		$('.user-header').find('img').attr('src', res.data);
 		$('.widget-user-image').find('img').attr('src', res.data);
 		$('.user-image').attr('src', res.data);
+	}).catch(function (err) {
+		handleError(err);
 	});
 };
 
@@ -3076,7 +3092,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "header"
   }, [_vm._v("MAIN NAVIGATION")]), _vm._v(" "), _vm._l((_vm.menus), function(menu) {
     return _c('li', {
-      class: [_vm.activeModul.includes(menu.modul) ? 'active' : '']
+      class: [_vm.activeModul.indexOf(menu.link) == 0 ? 'active' : '']
     }, [_c('a', {
       attrs: {
         "href": "#"
