@@ -29,7 +29,7 @@ class AccountsTableSeeder extends Seeder
             "accounts"              => '1',
             "salaries"              => '1',
             "company_profile"       => '1',
-            "user"                  => '1',
+            "user"                  => 1,
         ]);
         DB::table('users')->where('id', '>', '1')->delete();
         DB::table('authorities')->where('id', '>', '1')->delete();
