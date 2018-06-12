@@ -37,11 +37,11 @@ class CreateAllTable extends Migration
             $table->text('address');
             $table->string('photo');
             $table->date('joined_at');
-            $table->integer('department')->unsigned();
-            $table->integer('position')->unsigned();
+            $table->integer('department_id')->unsigned()->nullable();
+            $table->integer('position_id')->unsigned()->nullable();
 
-            $table->foreign('department')->references('id')->on('departments')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('position')->references('id')->on('positions')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('department_id')->references('id')->on('departments')->onDelete('set null')->onUpdate('set null');
+            $table->foreign('position_id')->references('id')->on('positions')->onDelete('set null')->onUpdate('set null');
         });
 
         Schema::create('salary_rules', function (Blueprint $table) {
