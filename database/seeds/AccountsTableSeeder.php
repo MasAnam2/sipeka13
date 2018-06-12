@@ -11,6 +11,7 @@ class AccountsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('authorities')->truncate();
         DB::table('users')->truncate();
         DB::table('users')->insert([
             'username'  => 'admin',
@@ -31,7 +32,14 @@ class AccountsTableSeeder extends Seeder
             "company_profile"       => '1',
             "user"                  => 1,
         ]);
-        DB::table('users')->where('id', '>', '1')->delete();
+        DB::table('admin_bio')->truncate();
+        DB::table('admin_bio')->insert([
+            'name'  => 'Hairul Anam',
+            'gender'    => '0',
+            'address'   => 'Tanggul Kulon',
+            'birthdate' => '1998-04-08',
+            'born_in'   => 'Jember',
+        ]);
         DB::table('authorities')->where('id', '>', '1')->delete();
         $faker = Faker\Factory::create('id_ID');
         $data2 = [];
