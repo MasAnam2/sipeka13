@@ -11,6 +11,13 @@ class AccountsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('users')->truncate();
+        DB::table('users')->insert([
+            'username'  => 'admin',
+            'password'  => bcrypt('admin'),
+            'level'     => '0',
+            'avatar_path'   => '/avatars/default.jpg',
+        ]);
     	DB::table('users')->where('id', '>', '1')->delete();
     	DB::table('authorities')->where('id', '>', '1')->delete();
     	$faker = Faker\Factory::create('id_ID');
