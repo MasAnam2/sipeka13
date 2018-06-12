@@ -11,6 +11,13 @@ class CompanyTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+    	DB::table('company')->truncate();
+        DB::table('company')->insert([
+        	'name'		=> 'PT INDAHNYA BERBAGI',
+        	'contact'	=> '085322778935',
+        	'address'	=> 'Tanggul Kulon, Jember, Jatim',
+        	'email'		=> 'hairulanam21@gmail.com',
+        	'fb_link'	=> 'http://facebook.com/hairul.anam.3591'
+        ]);
     }
 }

@@ -124,7 +124,7 @@ class CreateAllTable extends Migration
             $table->string('name', 100)->unique();
             $table->string('contact', 100);
             $table->text('address');
-            $table->string('logo_export', 100);
+            $table->string('logo_export', 100)->nullable();
         });
 
         Schema::create('system_activities', function(Blueprint $table){
